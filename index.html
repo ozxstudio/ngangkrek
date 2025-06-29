@@ -106,6 +106,7 @@
       <div class="symbol">💔</div>
       <h1>Shrine: Putus Kontrak Ngangkrek</h1>
     </header>
+   <button id="audio-toggle">🔊 Play</button><br /><br />
     <div class="container">
       <div class="shrine">
         <p>
@@ -127,7 +128,10 @@
           🌬️ Aku mencabut ikatan. 🌱 Aku tidak memutus kehidupan. 🪷 Aku hanya
           mengembalikan semuanya ke sumber asalnya.
         </div>
-
+        <div class="ritual">
+          laku ngangkrek karena tau potensi diri ;; bukan karena malas atau bodoh ;; tetapi sebuah pengabdian tanpa
+          berharap imbalan jasa ;; hanya cara bertahan hidup karena punya "tugas" yang harus diselesaikan //
+        </div>
         <div class="in-memoriam">
           <h2>🎚️ In Memoriam: Studio Batas</h2>
           <p>
@@ -246,9 +250,32 @@ bahwa kau hanya batang mati yang berdiri karena pamrih semu.”<br />
       </div>
     </footer>
 
- <audio autoplay loop id="indonesiaRaya">
+<audio id="indonesiaRaya" loop>
   <source src="assets/audio/toto-i-will-remember-album-version.mp3" type="audio/mpeg">
   Browser kamu tidak mendukung audio.
+</audio>
+
+<button id="audio-toggle">🔊 Play</button>
+
+<script>
+  const audio = document.getElementById("indonesiaRaya");
+  const button = document.getElementById("audio-toggle");
+
+  button.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.volume = 0.3;  // Bisa disesuaikan
+      audio.play();
+      button.innerText = "🔇 Pause";
+    } else {
+      audio.pause();
+      button.innerText = "🔊 Play";
+    }
+  });
+</script>
+
+
+<audio id="indonesiaRaya">
+  <source src="assets/audio/toto-i-will-remember-album-version.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -257,9 +284,6 @@ bahwa kau hanya batang mati yang berdiri karena pamrih semu.”<br />
     audio.volume = 0.3;
     audio.play();
   }
-
-  // Jalankan otomatis jika mau
-  window.onload = playShrineAudio;
 </script>
 
   </body>
